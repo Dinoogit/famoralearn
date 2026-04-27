@@ -1,0 +1,346 @@
+/* =============================================
+   FamoraLearn - Register Page
+   SAMA PERSIS dengan login.css + diperbesar
+   ============================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg) 0%, var(--primary) 100%);
+    position: relative;
+    min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--float-color) 0%, transparent 70%);
+    top: -260px; right: -260px;
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--float-color) 0%, transparent 70%);
+    bottom: -200px; left: -200px;
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out reverse;
+    pointer-events: none;
+}
+
+.min-vh-100 {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* Theme toggle */
+.theme-toggle-fixed {
+    position: fixed;
+    top: 20px; right: 20px;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 9px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85em;
+    color: var(--text);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+.theme-toggle-fixed:hover { border-color: var(--light); transform: translateY(-2px); }
+
+/* ---- Register card — diperbesar dari login ---- */
+.register-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(24px);
+    border-radius: 28px;
+    padding: 60px 64px;
+    width: 92%;
+    max-width: 640px;
+    box-sizing: border-box;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+    border: 1px solid var(--border);
+    position: relative;
+    z-index: 1;
+    animation: slideUp 0.6s ease-out;
+}
+
+/* ---- Logo — IDENTIK dengan halaman login ---- */
+.brand-logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #000;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(246,177,122,0.25);
+}
+
+.logo-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--light);
+    letter-spacing: -2px;
+    margin-bottom: 4px;
+}
+
+.logo-sub {
+    color: var(--text-muted);
+    font-size: 0.82em;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+/* ---- Labels — semua teks pakai --text agar nyatu dark mode ---- */
+.custom-label {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* ---- Inputs — IDENTIK dengan login ---- */
+.custom-input {
+    background: var(--input-bg) !important;
+    border: 2px solid var(--border) !important;
+    border-radius: 12px !important;
+    color: var(--text) !important;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.1em;
+    padding: 15px 18px;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+}
+
+.custom-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.custom-input:focus {
+    border-color: var(--light) !important;
+    box-shadow: 0 0 0 3px rgba(246,177,122,0.18) !important;
+    background: var(--input-bg) !important;
+    color: var(--text) !important;
+}
+
+.custom-input:-webkit-autofill,
+.custom-input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--input-bg) inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Fix warna teks pada <select> option di dark mode */
+.custom-input option {
+    background: #2D3250;
+    color: #f0f1f8;
+}
+
+/* Eye button */
+.input-group {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+}
+
+.input-group .custom-input { border-radius: 12px 0 0 12px !important; }
+.input-group > .custom-input,
+.input-group > .form-control,
+.input-group > .form-select {
+    min-width: 0;
+}
+
+.custom-eye-btn {
+    background: var(--input-bg) !important;
+    border: 2px solid var(--border) !important;
+    border-left: none !important;
+    border-radius: 0 12px 12px 0 !important;
+    color: var(--text-muted) !important;
+    padding: 0 16px;
+    font-size: 1.1em;
+}
+.custom-eye-btn:hover { color: var(--light) !important; }
+
+/* Divider */
+.custom-divider { border-color: var(--border); opacity: 1; }
+
+/* ---- Button — IDENTIK dengan login ---- */
+.btn-custom-primary {
+    background: linear-gradient(135deg, #F6B17A 0%, #e07b2a 100%);
+    color: #1a1d2e;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 1px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+.btn-custom-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(246,177,122,0.45);
+    color: #1a1d2e;
+}
+
+/* Back link */
+.back-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+.back-link:hover { color: var(--light); }
+
+/* Footer note */
+.footer-note {
+    color: var(--text-muted);
+    font-size: 0.82em;
+    margin-bottom: 0;
+}
+
+/* Alerts */
+.alert-danger {
+    background: rgba(255,82,82,0.15);
+    border: 1px solid rgba(255,82,82,0.4);
+    color: #ff7a7a;
+    border-radius: 10px;
+    font-size: 0.95em;
+}
+.alert-success-custom {
+    background: rgba(82,255,168,0.12);
+    border: 1px solid rgba(82,255,168,0.35);
+    color: #10b981;
+    border-radius: 10px;
+}
+
+/* =============================================
+   LIGHT MODE OVERRIDES
+   ============================================= */
+[data-theme="light"] .register-container {
+    box-shadow: 0 24px 70px rgba(0,0,0,0.12);
+}
+[data-theme="light"] .custom-label {
+    color: #1a202c;
+}
+[data-theme="light"] .custom-input {
+    border-color: #cbd5e0 !important;
+    color: #1a202c !important;
+    background: #ffffff !important;
+}
+[data-theme="light"] .custom-input::placeholder {
+    color: #718096;
+    opacity: 1;
+}
+[data-theme="light"] .custom-input option {
+    background: #ffffff;
+    color: #1a202c;
+}
+[data-theme="light"] .custom-eye-btn {
+    border-color: #cbd5e0 !important;
+    background: #ffffff !important;
+    color: #718096 !important;
+}
+[data-theme="light"] .back-link      { color: #4a5568; }
+[data-theme="light"] .footer-note    { color: #718096; }
+[data-theme="light"] .logo-sub       { color: #4a5568; }
+[data-theme="light"] .custom-divider { border-color: #cbd5e0; }
+[data-theme="light"] .theme-toggle-fixed { color: #1a202c; }
+
+/* =============================================
+   MOBILE
+   ============================================= */
+@media (max-width: 768px) {
+    .register-container {
+        width: calc(100% - 24px);
+        padding: 32px 20px;
+        border-radius: 22px;
+    }
+
+    .theme-toggle-fixed {
+        top: 12px;
+        right: 12px;
+        padding: 8px 14px;
+        font-size: 0.78em;
+    }
+
+    .brand-logo-img {
+        width: 84px;
+        height: 84px;
+    }
+
+    .logo-title {
+        font-size: 2.1em;
+        letter-spacing: -1px;
+        word-break: break-word;
+    }
+
+    .logo-sub {
+        font-size: 0.75em;
+        letter-spacing: 2px;
+    }
+
+    .row.g-3 > [class*="col-"] {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .back-link {
+        display: inline-block;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-container {
+        width: calc(100% - 16px);
+        padding: 24px 16px;
+        border-radius: 18px;
+    }
+
+    .custom-input,
+    .btn-custom-primary {
+        font-size: 1rem;
+        padding: 14px 16px;
+    }
+
+    .custom-eye-btn {
+        padding: 0 14px;
+    }
+
+    .back-link,
+    .footer-note {
+        font-size: 0.8em;
+    }
+}
